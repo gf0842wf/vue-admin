@@ -62,7 +62,7 @@
         </el-col>
 
         <!--编辑界面-->
-        <el-dialog :title="editFormTtile" v-model="editFormVisible" :close-on-click-modal="false">
+        <el-dialog :title="editFormTitle" v-model="editFormVisible" :close-on-click-modal="false">
             <el-form :model="editForm" label-width="80px" :rules="editFormRules" ref="editForm">
                 <el-form-item label="姓名" prop="name">
                     <el-input v-model="editForm.name" auto-complete="off"></el-input>
@@ -111,7 +111,7 @@
                 page: 1,
                 listLoading: false,
                 editFormVisible: false,//编辑界面显是否显示
-                editFormTtile: '编辑',//编辑界面标题
+                editFormTitle: '编辑',//编辑界面标题
                 //编辑界面数据
                 editForm: {
                     id: 0,
@@ -183,7 +183,7 @@
             //显示编辑界面
             handleEdit: function (row) {
                 this.editFormVisible = true;
-                this.editFormTtile = '编辑';
+                this.editFormTitle = '编辑';
                 this.editForm.id = row.id;
                 this.editForm.name = row.name;
                 this.editForm.sex = row.sex;
@@ -258,7 +258,7 @@
                 var _this = this;
 
                 this.editFormVisible = true;
-                this.editFormTtile = '新增';
+                this.editFormTitle = '新增';
 
                 this.editForm.id = 0;
                 this.editForm.name = '';
